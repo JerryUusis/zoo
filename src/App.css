@@ -1,7 +1,29 @@
+:root {
+  --tea-green: #CCD5AE;
+  --beige: #E9EDC9;
+  --cornsilk: #FEFAE0;
+  --papaya: #FAEDCD;
+  --buff: #D4A373;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+
+/* Used for header font */
+
+
+@font-face {
+  font-family: 'Concert One', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+}
+
+@font-face {
+  font-family: 'Ubuntu', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 }
 
 .main-container {
@@ -9,6 +31,14 @@
   display: flex;
   justify-content: center;
 }
+
+body {
+  background-color: var(--beige);
+}
+
+/* Header */
+
+
 
 /* Card styles */
 
@@ -21,6 +51,7 @@
 }
 
 .card {
+  font-family: 'Ubuntu', sans-serif;
   display: flex;
   flex-direction: column;
   border: 1px black solid;
@@ -41,19 +72,30 @@
 .button-main-container {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 0;
+  background-color: var(--cornsilk);
 }
 
 .button-container {
   display: flex;
+  width: 100%;
   margin: auto;
   justify-content: space-evenly;
   align-content: center;
 }
 
 .card button {
-  
-  padding: 0rem 0.75rem;
+  font-family: monospace;
+  text-align: center;
+  align-self: center;
+  padding: 0.5rem;
+}
+
+.like-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem;
 }
 
 .mood {
