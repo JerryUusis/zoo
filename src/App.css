@@ -40,6 +40,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 /* Header */
@@ -51,6 +52,20 @@ header h1{
   font-size: 4rem;
   padding: 1rem;
 }
+
+/* Array buttons */
+
+  .array-button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .array-button-container button {
+    width: 100px;
+    padding: 0.75rem 0;
+    font-family: inherit;
+    margin: 1rem;
+  }
 
 /* SearchBar */
 
@@ -69,7 +84,10 @@ header h1{
 .card-container {
   margin-top: 4rem;
   display: flex;
+  justify-content: center;
   width: 80%;
+  max-width: 1522px;
+  overflow: scroll;
   flex-wrap: wrap;
   gap: 20px;
   border: black solid 1px;
