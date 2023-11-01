@@ -5,10 +5,13 @@ const Card = () => {
     <div className="card">
         <div className="animal-image"></div>
         <div className="button-main-container">
-            <h2>Animal title</h2>
+            <h2 className="animal-title">Animal title</h2>
             <div className="button-container">
                 <button>-</button>
-                <span className="material-symbols-outlined mood">mood</span>
+                <div className="like-counter">
+                    <span className="material-symbols-outlined mood">mood</span>
+                    <p>0</p>
+                </div>
                 <button>+</button>
             </div>
         </div>
