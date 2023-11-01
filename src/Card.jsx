@@ -3,7 +3,9 @@
 const Card = () => {
     return (
     <div className="card">
-        <div className="animal-image"></div>
+        <div className="animal-image">
+            <span id="close-button">X</span>
+        </div>
         <div className="button-main-container">
             <h2 className="animal-title">Animal title</h2>
             <div className="button-container">
