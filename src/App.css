@@ -15,7 +15,6 @@
 
 /* Used for header font */
 
-
 @font-face {
   font-family: 'Concert One', sans-serif;
   src: url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
@@ -38,7 +37,12 @@ body {
 
 /* Header */
 
-
+header h1{
+  font-family: 'Concert One', sans-serif;
+  background-color: var(--buff);
+  font-size: 4rem;
+  padding: 1rem;
+}
 
 /* Card styles */
 
@@ -100,4 +104,16 @@ body {
 
 .mood {
   font-size: 2rem;
+}
+
+/* Footer section */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--tea-green);
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  padding: 1rem 0;
 }
