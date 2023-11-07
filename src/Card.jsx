@@ -6,7 +6,12 @@ import { useState } from "react";
 </>
 
 
-const Card = ({name, likes}) => {
+const Card = ({name, likes, removeCard}) => {
+
+    const handleRemove = () => {
+        removeCard(name)
+    }
+    
     const [mood, setMood] = useState("sentiment_neutral");
 
     //Fix this later
@@ -37,7 +42,7 @@ const Card = ({name, likes}) => {
     <div className="card">
         <div className="animal-image-container">
             <img src = {`https://source.unsplash.com/400x400/?${name}`} alt={name} className="animal-image" />
-            <span id="close-button" >X</span>
+            <span id="close-button" onClick= {handleRemove}>X</span>
         </div>
         <div className="button-main-container">
             <h2 className="animal-title">{name}</h2>
