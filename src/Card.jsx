@@ -6,10 +6,8 @@ import { useState } from "react";
 </>
 
 
-const Card = ({name, likeAmount}) => {
-    const [likes, setLikes] = useState(0);
+const Card = ({name, likes}) => {
     const [mood, setMood] = useState("sentiment_neutral");
-
 
     //Fix this later
     const checkMood = () => {
@@ -37,7 +35,8 @@ const Card = ({name, likeAmount}) => {
 
     return (
     <div className="card">
-        <div className="animal-image">
+        <div className="animal-image-container">
+            <img src = {`https://source.unsplash.com/400x400/?${name}`} alt={name} className="animal-image" />
             <span id="close-button" >X</span>
         </div>
         <div className="button-main-container">
