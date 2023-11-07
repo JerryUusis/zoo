@@ -95,6 +95,7 @@ header h1{
 
 .card {
   font-family: 'Ubuntu', sans-serif;
+  text-transform: capitalize;
   display: flex;
   flex-direction: column;
   border: 1px black solid;

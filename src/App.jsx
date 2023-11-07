@@ -1,24 +1,30 @@
 import './App.css'
-// import { useState } from 'react'
+import { useState } from 'react'
 import Header from './Header'
 import SearchBar from './SearchBar'
-import CardContainer from './CardContainer'
 import Footer from './Footer'
 import ArrayButton from './ArrayButton'
+import Card from './Card'
+import { animals } from './animalsList';
 
 function App() {
+  const [animalData, setAnimalData] = useState(animals);
 
   return (
     <>
       <Header />
       <div className="array-button-container">
-        <ArrayButton name="Animals"/>
-        <ArrayButton name="Birds"/>
-        <ArrayButton name="Show all"/>
+        <ArrayButton name="Animals" />
+        <ArrayButton name="Birds" />
+        <ArrayButton name="Show all" />
       </div>
       <SearchBar />
       <div className="main-container">
-        <CardContainer />
+        <div className="card-container">
+          {animalData.map(((animal, i) => (
+            <Card key={i} name={animal.name} likes={animal.likes} />
+          )))}
+        </div>
       </div>
       <Footer />
     </>
