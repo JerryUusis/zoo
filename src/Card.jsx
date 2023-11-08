@@ -1,9 +1,4 @@
-import { useState } from "react";
-
-const Card = ({ name, likes, removeCard, likeClick }) => {
-    const [mood, setMood] = useState("sentiment_neutral");
-
-    //Fix this later
+const Card = ({ name, likes, removeCard, checkMood, likeClick }) => {
 
     return (
         <div className="card">
@@ -22,7 +17,7 @@ const Card = ({ name, likes, removeCard, likeClick }) => {
                 <div className="button-container">
                     <button className="dislikeButton" onClick={likeClick}>-</button>
                     <div className="like-counter">
-                        <span className="material-symbols-outlined mood">{mood}</span>
+                        <span className="material-symbols-outlined mood">{checkMood}</span>
                         <p>{likes}</p>
                     </div>
                     <button className="likeButton" onClick={likeClick}>+</button>
