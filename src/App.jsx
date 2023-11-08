@@ -18,13 +18,19 @@ function App() {
   // Go through each object of animalData
   // Create a variable for return
   // map through animalData and set a condition if iterable object .name equals to animalName
-  // Return spread operator for animal object to increase the likes with 1
+  // Check if the button clicked is a like or dislike button
+  // Return spread operator for animal object to increase or decrease likes with 1
   // Else return the original animal
   // Use setAnimalData to update the results
-  const handleLikeClick = (animalName) => {
+  const handleLikeClick = (animalName, buttonType) => {
     const updateLikes = animalData.map((animal => {
       if (animal.name === animalName) {
-        return { ...animal, likes: animal.likes + 1 }
+        if (buttonType.className === "likeButton") {
+          return { ...animal, likes: animal.likes + 1 }
+        }
+        else if (buttonType.className === "dislikeButton") {
+          return { ...animal, likes: animal.likes - 1 }
+        }
       }
       return animal
     }))
@@ -49,7 +55,7 @@ function App() {
               likes={animal.likes}
               removeCard={() => removeCard(animal.name)}
               // Add a second argument to check the type of click such as "like" or "dislike" and make conditional in the function which one it will use for increments or decreasing the likes amount. This is for handleClick event
-              likeClick={() => handleLikeClick(animal.name)}
+              likeClick={(event) => handleLikeClick(animal.name, event.target)}
             />
           ))}
         </div>
