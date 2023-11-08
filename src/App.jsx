@@ -10,6 +10,19 @@ import { animals } from "./animalsList";
 
 function App() {
   const [animalData, setAnimalData] = useState(animals);
+  
+  // Set the correct string to display right icon in the card
+  const handleIcon = (likeAmount) => {
+    if (likeAmount < 0) {
+      return "sentiment_dissatisfied"
+    }
+    else if (likeAmount === 0) {
+      return "sentiment_neutral"
+    }
+    else if (likeAmount > 0) {
+      return "mood"
+    }
+  }
 
   const removeCard = (animalName) => {
     setAnimalData(animalData.filter((item) => item.name !== animalName));
@@ -53,6 +66,7 @@ function App() {
               key={animal.name}
               name={animal.name}
               likes={animal.likes}
+              checkMood={handleIcon(animal.likes)}
               removeCard={() => removeCard(animal.name)}
               // Add a second argument to check the type of click such as "like" or "dislike" and make conditional in the function which one it will use for increments or decreasing the likes amount. This is for handleClick event
               likeClick={(event) => handleLikeClick(animal.name, event.target)}
