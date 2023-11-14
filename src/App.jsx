@@ -68,7 +68,8 @@ function App() {
       <SearchBar handleChange={handleSearch}/>
       <div className="main-container">
         <div className="card-container">
-          {animalData.filter((animal) => animal.name.includes(search))
+          {animalData.filter((animal) => 
+          animal.name.includes(search))
           .map((animal) => (
             <Card
               key={animal.name}
