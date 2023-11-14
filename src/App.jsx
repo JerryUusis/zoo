@@ -10,6 +10,8 @@ import { animals } from "./animalsList";
 
 function App() {
   const [animalData, setAnimalData] = useState(animals);
+  const [search, setSearch] = useState("");
+  
   
   // Set the correct string to display right icon in the card
   const handleIcon = (likeAmount) => {
@@ -35,6 +37,7 @@ function App() {
   // Return spread operator for animal object to increase or decrease likes with 1
   // Else return the original animal
   // Use setAnimalData to update the results
+
   const handleLikeClick = (animalName, buttonType) => {
     const updateLikes = animalData.map((animal => {
       if (animal.name === animalName) {
@@ -50,6 +53,10 @@ function App() {
     setAnimalData(updateLikes)
   }
 
+  const handleSearch = (event) => {
+    setSearch(event.target.value.toLowerCase())
+  }
+
   return (
     <>
       <Header />
@@ -58,10 +65,12 @@ function App() {
         <ArrayButton name="Birds" />
         <ArrayButton name="Show all" />
       </div>
-      <SearchBar />
+      <SearchBar handleChange={handleSearch}/>
       <div className="main-container">
         <div className="card-container">
-          {animalData.map((animal) => (
+          {animalData.filter((animal) => 
+          animal.name.includes(search))
+          .map((animal) => (
             <Card
               key={animal.name}
               name={animal.name}
