@@ -1,23 +1,30 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+const Card = ({ name, likes, removeCard, checkMood, likeClick }) => {
 
-const Card = () => {
     return (
-    <div className="card">
-        <div className="animal-image">
-            <span id="close-button">X</span>
-        </div>
-        <div className="button-main-container">
-            <h2 className="animal-title">Animal title</h2>
-            <div className="button-container">
-                <button>-</button>
-                <div className="like-counter">
-                    <span className="material-symbols-outlined mood">mood</span>
-                    <p>0</p>
+        <div className="card">
+            <div className="animal-image-container">
+                <img
+                    src={`https://source.unsplash.com/400x400/?${name}`}
+                    alt={name}
+                    className="animal-image"
+                />
+                <span id="close-button" onClick={removeCard}>
+                    X
+                </span>
+            </div>
+            <div className="button-main-container">
+                <h2 className="animal-title">{name}</h2>
+                <div className="button-container">
+                    <button className="dislikeButton" onClick={likeClick}>-</button>
+                    <div className="like-counter">
+                        <span className="material-symbols-outlined mood">{checkMood}</span>
+                        <p>{likes}</p>
+                    </div>
+                    <button className="likeButton" onClick={likeClick}>+</button>
                 </div>
-                <button>+</button>
             </div>
         </div>
-    </div>)
-}
+    );
+};
 
 export default Card;
