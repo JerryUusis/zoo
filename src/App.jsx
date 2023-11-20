@@ -4,6 +4,7 @@ import Header from "./Header";
 import SearchBar from "./SearchBar";
 import Footer from "./Footer";
 import Card from "./Card";
+import Home from  "./Home";
 import { animals } from "./animalsList";
 
 function App() {

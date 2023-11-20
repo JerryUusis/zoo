@@ -84,6 +84,24 @@ input {
   font-family: "Ubuntu", sans-serif;
 }
 
+/* Home */
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.array-selector-container {
+  width: 50%;
+  text-align: center;
+}
+
+.array-selector-container img {
+  width: 100%;
+  height: 200px;
+}
+
 /* Card */
 
 .card-container {
