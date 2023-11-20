@@ -1,9 +1,9 @@
 :root {
-  --tea-green: #CCD5AE;
-  --beige: #E9EDC9;
-  --cornsilk: #FEFAE0;
-  --papaya: #FAEDCD;
-  --buff: #D4A373;
+  --tea-green: #ccd5ae;
+  --beige: #e9edc9;
+  --cornsilk: #fefae0;
+  --papaya: #faedcd;
+  --buff: #d4a373;
 }
 
 * {
@@ -12,17 +12,16 @@
   box-sizing: border-box;
 }
 
-
 /* Used for header font */
 
 @font-face {
-  font-family: 'Concert One', sans-serif;
-  src: url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+  font-family: "Concert One", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
 }
 
 @font-face {
-  font-family: 'Ubuntu', sans-serif;
-  src: url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+  font-family: "Ubuntu", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 }
 
 .main-container {
@@ -33,56 +32,62 @@
 }
 
 body {
-  background-color: var(--beige);
+  background: var(--beige);
 }
 
 #root {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  font-family: 'Ubuntu', sans-serif;
+  height: calc(100vh - 5.75rem);
+  font-family: "Ubuntu", sans-serif;
 }
 
 /* Header */
 
-header h1{
+header h1 {
   width: 100%;
-  font-family: 'Concert One', sans-serif;
-  background-color: var(--buff);
+  font-family: "Concert One", sans-serif;
   font-size: 4rem;
   padding: 1rem;
 }
 
+header {
+  display: flex;
+  background-color: var(--buff);
+}
+
 /* Array buttons */
 
-  .array-button-container {
-    display: flex;
-    justify-content: center;
-  }
+.array-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .array-button-container button {
-    width: 100px;
-    padding: 0.75rem 0;
-    font-family: inherit;
-    margin: 1rem;
-  }
+.array-button-container button {
+  width: 100px;
+  max-height: 75px;
+  padding: 0.75rem 0;
+  font-family: inherit;
+  margin: 1rem;
+}
 
 /* SearchBar */
 
-  input {
-    padding: 0.15rem;
-    margin-top: 4rem;
-    width: 300px;
-    align-self: center;
-    font-size: 2rem;
-    display: flex;
-    font-family: "Ubuntu", sans-serif;
-  }
+input {
+  padding: 0.15rem;
+  margin-top: 4rem;
+  width: 300px;
+  align-self: center;
+  font-size: 2rem;
+  display: flex;
+  font-family: "Ubuntu", sans-serif;
+}
 
 /* Card */
 
 .card-container {
-  margin-top: 4rem;
+  margin: 4rem 0;
   display: flex;
   justify-content: center;
   width: 80%;
@@ -90,11 +95,10 @@ header h1{
   overflow: scroll;
   flex-wrap: wrap;
   gap: 20px;
-  border: black solid 1px;
 }
 
 .card {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   text-transform: capitalize;
   display: flex;
   flex-direction: column;
@@ -110,7 +114,7 @@ header h1{
   width: 100%;
 }
 
-img.animal-image { 
+img.animal-image {
   width: 100%;
   object-fit: cover;
   object-position: center;
@@ -120,8 +124,10 @@ img.animal-image {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: var(--tea-green);
+  background-color: var(--cornsilk);
   padding: 0.25rem;
+  outline: 1px solid var(--buff);
+  box-shadow: 0 0 5px #333;
 }
 
 .card h2 {
@@ -166,8 +172,8 @@ img.animal-image {
 
 footer {
   width: 100%;
-  background-color: var(--tea-green);
-  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--buff);
+  font-family: "Ubuntu", sans-serif;
   text-align: center;
   padding: 1rem 0;
 }

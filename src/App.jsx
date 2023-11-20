@@ -3,10 +3,8 @@ import { useState } from "react";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import Footer from "./Footer";
-import ArrayButton from "./ArrayButton";
 import Card from "./Card";
 import { animals } from "./animalsList";
-
 
 function App() {
   const [animalData, setAnimalData] = useState(animals);
@@ -60,11 +58,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="array-button-container">
-        <ArrayButton name="Animals" />
-        <ArrayButton name="Birds" />
-        <ArrayButton name="Show all" />
-      </div>
+
       <SearchBar handleChange={handleSearch}/>
       <div className="main-container">
         <div className="card-container">
