@@ -1,10 +1,11 @@
 import "./App.css";
 import { useState } from "react";
-import Header from "./Header";
-import SearchBar from "./SearchBar";
-import Footer from "./Footer";
-import Card from "./Card";
-import Home from  "./Home";
+import Header from "./components/Header";
+import SearchBar from "./components/SearchBar";
+import Footer from "./components/Footer";
+import Card from "./components/Card";
+import Home from  "./components/Home";
+import Animals from "./components/Animals";
 import { animals } from "./animalsList";
 
 function App() {
@@ -60,24 +61,14 @@ function App() {
     <>
       <Header />
 
-      <SearchBar handleChange={handleSearch}/>
-      <div className="main-container">
-        <div className="card-container">
-          {animalData.filter((animal) => 
-          animal.name.includes(search))
-          .map((animal) => (
-            <Card
-              key={animal.name}
-              name={animal.name}
-              likes={animal.likes}
-              checkMood={handleIcon(animal.likes)}
-              removeCard={() => removeCard(animal.name)}
-              // Add a second argument to check the type of click such as "like" or "dislike" and make conditional in the function which one it will use for increments or decreasing the likes amount. This is for handleClick event
-              likeClick={(event) => handleLikeClick(animal.name, event.target)}
-            />
-          ))}
-        </div>
-      </div>
+      <Animals 
+        handleSearch={handleSearch}
+        animalData={animalData}
+        removeCard={removeCard}
+        search={search}
+        handleIcon = {handleIcon}
+        handleLikeClick={handleLikeClick}
+        />
       <Footer />
     </>
   );
