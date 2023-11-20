@@ -1,12 +1,11 @@
 import "./App.css";
 import { useState } from "react";
 import Header from "./components/Header";
-import SearchBar from "./components/SearchBar";
 import Footer from "./components/Footer";
-import Card from "./components/Card";
-import Home from  "./components/Home";
 import Animals from "./components/Animals";
+import About from "./components/About";
 import { animals } from "./animalsList";
+
 
 function App() {
   const [animalData, setAnimalData] = useState(animals);
