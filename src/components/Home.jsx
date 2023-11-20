@@ -1,5 +1,5 @@
-import frog from './assets/frog.jpeg'
-import crow from './assets/crow.jpeg'
+import frog from '../assets/frog.jpeg'
+import crow from '../assets/crow.jpeg'
 
 const Home = () => {
     return (
