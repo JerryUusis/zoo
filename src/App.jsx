@@ -1,7 +1,8 @@
 import "./App.css";
 import { useState } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import Root from './routes/Root'
+import Home from "./components/Home";
 import Animals from "./components/Animals";
 import About from "./components/About";
 import { animals } from "./animalsList";
@@ -10,8 +11,8 @@ import { animals } from "./animalsList";
 function App() {
   const [animalData, setAnimalData] = useState(animals);
   const [search, setSearch] = useState("");
-  
-  
+
+
   // Set the correct string to display right icon in the card
   const handleIcon = (likeAmount) => {
     if (likeAmount < 0) {
@@ -56,19 +57,30 @@ function App() {
     setSearch(event.target.value.toLowerCase())
   }
 
+  const router = createBrowserRouter([
+    {
+      path: '/', element: <Root />,
+      children: [
+        { path: '/', element: <Home /> },
+        {
+          path: '/animals', element: <Animals
+            handleSearch={handleSearch}
+            animalData={animalData}
+            removeCard={removeCard}
+            search={search}
+            handleIcon={handleIcon}
+            handleLikeClick={handleLikeClick}
+          />
+        },
+        { path: '/about', element: <About /> }
+
+      ]
+    }
+  ])
+
   return (
     <>
-      <Header />
-
-      <Animals 
-        handleSearch={handleSearch}
-        animalData={animalData}
-        removeCard={removeCard}
-        search={search}
-        handleIcon = {handleIcon}
-        handleLikeClick={handleLikeClick}
-        />
-      <Footer />
+      <RouterProvider router={router} />
     </>
   );
 }
