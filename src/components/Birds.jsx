@@ -16,7 +16,7 @@ const Birds = ({ handleSearch, birdData, removeCard, search, handleIcon, handleL
                         likes={bird.likes}
                         checkMood={handleIcon(bird.likes)}
                         removeCard={() => removeCard(bird.name, "bird")}
-                        likeClick={(event) => handleLikeClick(bird.name, event.target)}
+                        likeClick={(event) => handleLikeClick(bird.name, birdData, event.target)}
                         />
                 ))}
             </div>

@@ -18,7 +18,7 @@ const Animals = ({ handleSearch, animalData, removeCard, handleIcon, search, han
                                 checkMood={handleIcon(animal.likes)}
                                 removeCard={() => removeCard(animal.name, "animal")}
                                 // Add a second argument to check the type of click such as "like" or "dislike" and make conditional in the function which one it will use for increments or decreasing the likes amount. aThis is for handleClick event
-                                likeClick={(event) => handleLikeClick(animal.name, event.target)}
+                                likeClick={(event) => handleLikeClick(animal.name, animalData, event.target)}
                             />
                         ))}
                 </div>
