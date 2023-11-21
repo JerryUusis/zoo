@@ -2,7 +2,7 @@
 
 Zoo project is a project made with React for Business College Helsinki Full Stack Developer program. It creates a set of cards fetched from an array of anonymous objects which are animals and birds.
 
-It you can filter the cards by name with the search bar.
+You can filter the cards by name with the search bar.
 
 You can give up and downvotes and the icon updates based on the result.
 

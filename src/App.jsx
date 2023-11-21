@@ -1,17 +1,20 @@
 import "./App.css";
 import { useState } from "react";
-import Header from "./Header";
-import SearchBar from "./SearchBar";
-import Footer from "./Footer";
-import Card from "./Card";
-import Home from  "./Home";
-import { animals } from "./animalsList";
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import Root from './routes/Root'
+import Home from "./components/Home";
+import Animals from "./components/Animals";
+import Birds from "./components/Birds";
+import About from "./components/About";
+import { animals, birds } from "./animalsList";
+
 
 function App() {
   const [animalData, setAnimalData] = useState(animals);
+  const [birdData, setBirdData] = useState(birds);
   const [search, setSearch] = useState("");
-  
-  
+
+
   // Set the correct string to display right icon in the card
   const handleIcon = (likeAmount) => {
     if (likeAmount < 0) {
@@ -25,9 +28,12 @@ function App() {
     }
   }
 
-  const removeCard = (animalName) => {
-    setAnimalData(animalData.filter((item) => item.name !== animalName));
-  };
+  const removeCard = (categoryName, category) => {
+    if (category === "animal") {
+      return setAnimalData(animalData.filter((item) => item.name !== categoryName));
+    }
+    return setBirdData(birdData.filter((item) => item.name !== categoryName))
+  }
 
   // Go through each object of animalData
   // Create a variable for return
@@ -37,48 +43,62 @@ function App() {
   // Else return the original animal
   // Use setAnimalData to update the results
 
-  const handleLikeClick = (animalName, buttonType) => {
-    const updateLikes = animalData.map((animal => {
-      if (animal.name === animalName) {
+  const handleLikeClick = (categoryName, category, buttonType) => {
+    const updateLikes = category.map((species => {
+      if (species.name === categoryName) {
         if (buttonType.className === "likeButton") {
-          return { ...animal, likes: animal.likes + 1 }
+          return { ...species, likes: species.likes + 1 }
         }
         else if (buttonType.className === "dislikeButton") {
-          return { ...animal, likes: animal.likes - 1 }
+          return { ...species, likes: species.likes - 1 }
         }
       }
-      return animal
+      return species
     }))
-    setAnimalData(updateLikes)
+    if (category === birdData) {
+      setBirdData(updateLikes)
+    } else {
+      setAnimalData(updateLikes)
+    }
   }
 
   const handleSearch = (event) => {
     setSearch(event.target.value.toLowerCase())
   }
 
+  const router = createBrowserRouter([
+    {
+      path: '/', element: <Root />,
+      children: [
+        { path: '/', element: <Home /> },
+        {
+          path: '/animals', element: <Animals
+            handleSearch={handleSearch}
+            animalData={animalData}
+            removeCard={removeCard}
+            search={search}
+            handleIcon={handleIcon}
+            handleLikeClick={handleLikeClick}
+          />
+        },
+        {
+          path: '/birds', element: <Birds
+            handleSearch={handleSearch}
+            birdData={birdData}
+            removeCard={removeCard}
+            search={search}
+            handleIcon={handleIcon}
+            handleLikeClick={handleLikeClick} />
+        },
+        { path: '/about', element: <About /> }
+
+      ]
+    }
+  ])
+
   return (
     <>
-      <Header />
-
-      <SearchBar handleChange={handleSearch}/>
-      <div className="main-container">
-        <div className="card-container">
-          {animalData.filter((animal) => 
-          animal.name.includes(search))
-          .map((animal) => (
-            <Card
-              key={animal.name}
-              name={animal.name}
-              likes={animal.likes}
-              checkMood={handleIcon(animal.likes)}
-              removeCard={() => removeCard(animal.name)}
-              // Add a second argument to check the type of click such as "like" or "dislike" and make conditional in the function which one it will use for increments or decreasing the likes amount. This is for handleClick event
-              likeClick={(event) => handleLikeClick(animal.name, event.target)}
-            />
-          ))}
-        </div>
-      </div>
-      <Footer />
+      <RouterProvider router={router} />
     </>
   );
 }
