@@ -8,7 +8,7 @@ const Birds = ({ handleSearch, birdData, removeCard, search, handleIcon, handleL
         <SearchBar handleChange={handleSearch} />
         <div className="main-container">
             <div className="card-container">
-                {birdData.filter((bird) => bird.name.includes(search))
+                {birdData.filter((bird) => bird.name.toLowerCase().includes(search))
                 .map((bird) => (
                     <Card 
                         key={bird.name}
