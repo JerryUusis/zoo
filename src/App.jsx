@@ -43,19 +43,23 @@ function App() {
   // Else return the original animal
   // Use setAnimalData to update the results
 
-  const handleLikeClick = (animalName, buttonType) => {
-    const updateLikes = animalData.map((animal => {
-      if (animal.name === animalName) {
+  const handleLikeClick = (categoryName, category, buttonType) => {
+    const updateLikes = category.map((species => {
+      if (species.name === categoryName) {
         if (buttonType.className === "likeButton") {
-          return { ...animal, likes: animal.likes + 1 }
+          return { ...species, likes: species.likes + 1 }
         }
         else if (buttonType.className === "dislikeButton") {
-          return { ...animal, likes: animal.likes - 1 }
+          return { ...species, likes: species.likes - 1 }
         }
       }
-      return animal
+      return species
     }))
-    setAnimalData(updateLikes)
+    if (category === birdData) {
+      setBirdData(updateLikes)
+    } else {
+      setAnimalData(updateLikes)
+    }
   }
 
   const handleSearch = (event) => {
