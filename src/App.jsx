@@ -7,7 +7,7 @@ import Animals from "./components/Animals";
 import Birds from "./components/Birds";
 import About from "./components/About";
 import { animals, birds } from "./animalsList";
-
+import SinglePage from "./components/SinglePage";
 
 function App() {
   const [animalData, setAnimalData] = useState(animals);
@@ -71,6 +71,8 @@ function App() {
       path: '/', element: <Root />,
       children: [
         { path: '/', element: <Home /> },
+        { path: "animals/:name", element: <SinglePage categoryData={animalData} /> },
+        { path: "birds/:name", element: <SinglePage categoryData={birdData}/> },
         {
           path: '/animals', element: <Animals
             handleSearch={handleSearch}
@@ -90,8 +92,7 @@ function App() {
             handleIcon={handleIcon}
             handleLikeClick={handleLikeClick} />
         },
-        { path: '/about', element: <About /> }
-
+        { path: '/about', element: <About /> },
       ]
     }
   ])
