@@ -4,12 +4,14 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Root from './routes/Root'
 import Home from "./components/Home";
 import Animals from "./components/Animals";
+import Birds from "./components/Birds";
 import About from "./components/About";
-import { animals } from "./animalsList";
+import { animals, birds } from "./animalsList";
 
 
 function App() {
   const [animalData, setAnimalData] = useState(animals);
+  const [birdData, setBirdData] = useState(birds);
   const [search, setSearch] = useState("");
 
 
@@ -26,9 +28,12 @@ function App() {
     }
   }
 
-  const removeCard = (animalName) => {
-    setAnimalData(animalData.filter((item) => item.name !== animalName));
-  };
+  const removeCard = (categoryName, category) => {
+    if (category === "animal") {
+      return setAnimalData(animalData.filter((item) => item.name !== categoryName));
+    }
+    return setBirdData(birdData.filter((item) => item.name !== categoryName))
+  }
 
   // Go through each object of animalData
   // Create a variable for return
@@ -71,6 +76,15 @@ function App() {
             handleIcon={handleIcon}
             handleLikeClick={handleLikeClick}
           />
+        },
+        {
+          path: '/birds', element: <Birds
+            handleSearch={handleSearch}
+            birdData={birdData}
+            removeCard={removeCard}
+            search={search}
+            handleIcon={handleIcon}
+            handleLikeClick={handleLikeClick} />
         },
         { path: '/about', element: <About /> }
 
