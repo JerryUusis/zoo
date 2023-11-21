@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Card = ({ name, likes, removeCard, checkMood, likeClick }) => {
 
     return (
@@ -22,6 +24,7 @@ const Card = ({ name, likes, removeCard, checkMood, likeClick }) => {
                     </div>
                     <button className="likeButton" onClick={likeClick}>+</button>
                 </div>
+                <Link to={name}>See details</Link>
             </div>
         </div>
     );
