@@ -213,3 +213,22 @@ footer {
   text-align: center;
   padding: 1rem 0;
 }
+
+/* About */
+
+.about-main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.about-text-container {
+  width: 80%;
+  justify-content: center;
+}
+
+.about-text-container h1,
+.about-text-container h2,
+.about-text-container h3,
+.about-text-container p {
+  padding: 0.5rem 0;
+}
