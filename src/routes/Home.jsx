@@ -1,5 +1,5 @@
-import frog from '../assets/frog.jpeg'
-import crow from '../assets/crow.jpeg'
+import frog from '../assets/img/frog.jpeg'
+import crow from '../assets/img/crow.jpeg'
 import { NavLink } from 'react-router-dom'
 
 const Home = () => {

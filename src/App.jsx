@@ -2,12 +2,12 @@ import "./App.css";
 import { useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Root from './routes/Root'
-import Home from "./components/Home";
-import Animals from "./components/Animals";
-import Birds from "./components/Birds";
-import About from "./components/About";
+import Home from "./routes/Home";
+import Animals from "./routes/Animals";
+import Birds from "./routes/Birds";
+import About from "./routes/About";
 import { animals, birds } from "./animalsList";
-import SinglePage from "./components/SinglePage";
+import SinglePage from "./routes/SinglePage";
 
 function App() {
   const [animalData, setAnimalData] = useState(animals);
@@ -72,7 +72,7 @@ function App() {
       children: [
         { path: '/', element: <Home /> },
         { path: "animals/:name", element: <SinglePage categoryData={animalData} /> },
-        { path: "birds/:name", element: <SinglePage categoryData={birdData}/> },
+        { path: "birds/:name", element: <SinglePage categoryData={birdData} /> },
         {
           path: '/animals', element: <Animals
             handleSearch={handleSearch}
