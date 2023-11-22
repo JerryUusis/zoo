@@ -214,7 +214,38 @@ footer {
   padding: 1rem 0;
 }
 
-/* About */
+/* Single page */
+
+  .single-page-main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .single-page-main-container img {
+
+  }
+
+  .single-page-text-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 400px;
+  }
+
+  .single-page-text-container h2 {
+    text-transform: capitalize;
+  }
+
+  .single-page-text-container button {
+    display: block;
+    align-self: center;
+    padding: 0 0.5rem;
+    margin: 0.5rem 0;
+  }
+
+/* About page */
 
 .about-main-container {
   display: flex;
