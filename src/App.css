@@ -223,10 +223,6 @@ footer {
     align-items: center;
   }
 
-  .single-page-main-container img {
-
-  }
-
   .single-page-text-container {
     display: flex;
     flex-direction: column;
