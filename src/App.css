@@ -130,8 +130,18 @@ input {
   flex-direction: column;
   border: 1px black solid;
   width: 200px;
-  height: 300px;
+  height: 330px;
   position: relative;
+}
+
+.card a {
+  text-align: center;
+  padding-bottom: 0.25rem;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
 }
 
 .animal-image-container {
