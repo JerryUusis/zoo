@@ -19,7 +19,7 @@ const Category = (props) => {
                                 likes={item.likes}
                                 handleIcon={props.handleIcon(item.likes)}
                                 removeCard={() => props.removeCard(item.name, category)}
-                                handleLikeClick={(event) => {props.handleLikeClick(item.name, category, event.target)}}
+                                handleLikeClick={(event) => { props.handleLikeClick(item.name, category, event.target) }}
                             />
                         ))}
                 </div>
