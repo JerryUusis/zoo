@@ -3,16 +3,12 @@ import { useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Root from './routes/Root'
 import Home from "./routes/Home";
-import Animals from "./routes/Animals";
-import Birds from "./routes/Birds";
 import About from "./routes/About";
 import { animals, birds } from "./animalsList";
 import SinglePage from "./routes/SinglePage";
 import Category from "./routes/Category";
 
 function App() {
-  const [animalData, setAnimalData] = useState(animals);
-  const [birdData, setBirdData] = useState(birds);
   const [search, setSearch] = useState("");
   const [zoo, setZoo] = useState({ animals: animals, birds: birds })
 
@@ -61,8 +57,7 @@ function App() {
       path: '/', element: <Root />,
       children: [
         { path: '/', element: <Home /> },
-        // { path: "animals/:name", element: <SinglePage categoryData={animalData} /> },
-        // { path: "birds/:name", element: <SinglePage categoryData={birdData} /> },
+        { path: ":categories/:name", element: <SinglePage zoo={zoo} /> },
         {
           path: ':categories', element: <Category
             {...zoo}
@@ -72,25 +67,6 @@ function App() {
             handleIcon={handleIcon}
             handleLikeClick={handleLikeClick} />
         },
-        // {
-        //   path: '/animals', element: <Animals
-        //     handleSearch={handleSearch}
-        //     animalData={animalData}
-        //     removeCard={removeCard}
-        //     search={search}
-        //     handleIcon={handleIcon}
-        //     handleLikeClick={handleLikeClick}
-        //   />
-        // },
-        // {
-        //   path: '/birds', element: <Birds
-        //     handleSearch={handleSearch}
-        //     birdData={birdData}
-        //     removeCard={removeCard}
-        //     search={search}
-        //     handleIcon={handleIcon}
-        //     handleLikeClick={handleLikeClick} />
-        // },
         { path: '/about', element: <About /> }
       ]
     }
