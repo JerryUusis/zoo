@@ -6,8 +6,6 @@ const Category = (props) => {
     const params = useParams();
     const category = params.categories;
 
-    console.log(category)
-
     return (
         <>
             <SearchBar handleSearch={props.handleSearch} />
@@ -21,7 +19,7 @@ const Category = (props) => {
                                 likes={item.likes}
                                 handleIcon={props.handleIcon(item.likes)}
                                 removeCard={() => props.removeCard(item.name, category)}
-                                likeClick={(event) => {props.handleLikeClick(item.name, props[category], event.target)}}
+                                handleLikeClick={(event) => {props.handleLikeClick(item.name, category, event.target)}}
                             />
                         ))}
                     <p>Category will be here</p>
