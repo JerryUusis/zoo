@@ -3,9 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 const SinglePage = ({ zoo }) => {
     const navigate = useNavigate();
     const params = useParams()
-    let data = zoo[params.categories];
+    const data = zoo[params.categories].find((item) => item.name === params.name)
 
-    data = zoo[params.categories].find((item) => item.name === params.name)
     return (
         <div className="single-page-main-container">
             <img src={`https://source.unsplash.com/400x400/?${data.name}`} alt={data.name} />
