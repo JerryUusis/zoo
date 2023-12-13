@@ -22,7 +22,6 @@ const Category = (props) => {
                                 handleLikeClick={(event) => {props.handleLikeClick(item.name, category, event.target)}}
                             />
                         ))}
-                    <p>Category will be here</p>
                 </div>
             </div>
         </>
