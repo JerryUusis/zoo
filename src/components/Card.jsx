@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Card = ({ name, likes, removeCard, checkMood, likeClick }) => {
+const Card = ({ name, likes, removeCard, handleIcon, handleLikeClick }) => {
 
     return (
         <div className="card">
@@ -17,12 +17,12 @@ const Card = ({ name, likes, removeCard, checkMood, likeClick }) => {
             <div className="button-main-container">
                 <h2 className="animal-title">{name}</h2>
                 <div className="button-container">
-                    <button className="dislikeButton" onClick={likeClick}>-</button>
+                    <button className="dislikeButton" onClick={handleLikeClick}>-</button>
                     <div className="like-counter">
-                        <span className="material-symbols-outlined mood">{checkMood}</span>
+                        <span className="material-symbols-outlined mood">{handleIcon}</span>
                         <p>{likes}</p>
                     </div>
-                    <button className="likeButton" onClick={likeClick}>+</button>
+                    <button className="likeButton" onClick={handleLikeClick}>+</button>
                 </div>
                 <Link to={name}>See details</Link>
             </div>
