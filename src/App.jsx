@@ -34,8 +34,8 @@ function App() {
     setZoo({ ...zoo, [category]: updatedArray });
   }
 
-  const handleLikeClick = (creatureName, category, buttonType) => {
-    const updateLikes = category.map((species => {
+  const handleLikeClick = (creatureName, categoryName, buttonType) => {
+    const updateLikes = zoo[categoryName].map((species) => {
       if (species.name === creatureName) {
         if (buttonType.className === "likeButton") {
           return { ...species, likes: species.likes + 1 }
@@ -45,8 +45,11 @@ function App() {
         }
       }
       return species
-    }))
-    setZoo({ ...zoo, [category]: updateLikes })
+    })
+
+    setZoo((previousZoo) => (
+      { ...previousZoo, [categoryName]: updateLikes }
+    ))
   }
 
   const handleSearch = (event) => {
