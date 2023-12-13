@@ -1,5 +1,5 @@
-import SearchBar from "./SearchBar";
-import Card from "./Card";
+import SearchBar from "../components/SearchBar";
+import Card from "../components/Card";
 
 const Animals = ({ handleSearch, animalData, removeCard, handleIcon, search, handleLikeClick }) => {
     return (

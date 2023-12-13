@@ -2,18 +2,15 @@ import "./App.css";
 import { useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Root from './routes/Root'
-import Home from "./components/Home";
-import Animals from "./components/Animals";
-import Birds from "./components/Birds";
-import About from "./components/About";
+import Home from "./routes/Home";
+import About from "./routes/About";
 import { animals, birds } from "./animalsList";
-import SinglePage from "./components/SinglePage";
+import SinglePage from "./routes/SinglePage";
+import Category from "./routes/Category";
 
 function App() {
-  const [animalData, setAnimalData] = useState(animals);
-  const [birdData, setBirdData] = useState(birds);
   const [search, setSearch] = useState("");
-
+  const [zoo, setZoo] = useState({ animals: animals, birds: birds })
 
   // Set the correct string to display right icon in the card
   const handleIcon = (likeAmount) => {
@@ -28,24 +25,14 @@ function App() {
     }
   }
 
-  const removeCard = (categoryName, category) => {
-    if (category === "animal") {
-      return setAnimalData(animalData.filter((item) => item.name !== categoryName));
-    }
-    return setBirdData(birdData.filter((item) => item.name !== categoryName))
+  const removeCard = (speciesName, category) => {
+    const updatedArray = zoo[category].filter((item) => item.name !== speciesName);
+    setZoo({ ...zoo, [category]: updatedArray });
   }
 
-  // Go through each object of animalData
-  // Create a variable for return
-  // map through animalData and set a condition if iterable object .name equals to animalName
-  // Check if the button clicked is a like or dislike button
-  // Return spread operator for animal object to increase or decrease likes with 1
-  // Else return the original animal
-  // Use setAnimalData to update the results
-
-  const handleLikeClick = (categoryName, category, buttonType) => {
-    const updateLikes = category.map((species => {
-      if (species.name === categoryName) {
+  const handleLikeClick = (creatureName, categoryName, buttonType) => {
+    const updateLikes = zoo[categoryName].map((species) => {
+      if (species.name === creatureName) {
         if (buttonType.className === "likeButton") {
           return { ...species, likes: species.likes + 1 }
         }
@@ -54,12 +41,11 @@ function App() {
         }
       }
       return species
-    }))
-    if (category === birdData) {
-      setBirdData(updateLikes)
-    } else {
-      setAnimalData(updateLikes)
-    }
+    })
+
+    setZoo((previousZoo) => (
+      { ...previousZoo, [categoryName]: updateLikes }
+    ))
   }
 
   const handleSearch = (event) => {
@@ -71,28 +57,17 @@ function App() {
       path: '/', element: <Root />,
       children: [
         { path: '/', element: <Home /> },
-        { path: "animals/:name", element: <SinglePage categoryData={animalData} /> },
-        { path: "birds/:name", element: <SinglePage categoryData={birdData}/> },
+        { path: ":categories/:name", element: <SinglePage zoo={zoo} /> },
         {
-          path: '/animals', element: <Animals
+          path: ':categories', element: <Category
+            {...zoo}
             handleSearch={handleSearch}
-            animalData={animalData}
-            removeCard={removeCard}
-            search={search}
-            handleIcon={handleIcon}
-            handleLikeClick={handleLikeClick}
-          />
-        },
-        {
-          path: '/birds', element: <Birds
-            handleSearch={handleSearch}
-            birdData={birdData}
             removeCard={removeCard}
             search={search}
             handleIcon={handleIcon}
             handleLikeClick={handleLikeClick} />
         },
-        { path: '/about', element: <About /> },
+        { path: '/about', element: <About /> }
       ]
     }
   ])
