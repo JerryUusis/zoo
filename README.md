@@ -62,7 +62,7 @@ The project is organized into several components and routes:
 
 - App.jsx: The main application component.
 - Header.jsx: Header component containing navigation links.
-- SinglePage.js: Component for displaying detailed information about a - specific species.
+- SinglePage.jsx: Component for displaying detailed information about a - specific species.
 - Home.jsx: Home component displaying category links.
 - Category.jsx: Component for displaying a category of cards with search functionality.
 - Root.jsx: Root component managing the overall layout.
