@@ -306,6 +306,7 @@ footer {
 .about-text-container {
   width: 80%;
   justify-content: center;
+  margin: 2rem 0;
 }
 
 .about-text-container h1,
@@ -314,3 +315,45 @@ footer {
 .about-text-container p {
   padding: 0.5rem 0;
 }
+
+#code-snippet {
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.about-text-container a {
+  color: var(--accent);
+}
+
+.about-text-container ul, 
+.about-text-container ol {
+  padding: 1rem 1rem;
+}
+
+.about-text-container p,
+code {
+  font-size: 1rem;
+}
+
+.about-text-container code {
+  color: var(--accent);
+}
+
+table,
+thead,
+th,
+tbody,
+tr,
+td {
+  border: 1px var(--secondary-darker) solid;
+  border-collapse: collapse;
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
