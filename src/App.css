@@ -139,6 +139,8 @@ input {
   height: 330px;
   position: relative;
   color: var(--secondary-darker);
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .card a {
@@ -167,12 +169,13 @@ img.animal-image {
 
 #close-button {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.5rem;
+  right: 0.5rem;
   background-color: var(--primary-lighter);
   padding: 0.25rem;
   outline: 1px solid var(--secondary);
   box-shadow: 0 0 5px #333;
+  border-radius: 1px;
 }
 
 .card h2 {
@@ -199,6 +202,7 @@ img.animal-image {
   text-align: center;
   align-self: center;
   padding: 0.5rem;
+  color: var(--secondary-darker);
 }
 
 .like-counter {
