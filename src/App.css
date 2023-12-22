@@ -293,6 +293,8 @@ footer {
   align-self: center;
   padding: 0 0.5rem;
   margin: 0.5rem 0;
+  background-color: var(--primary-lighter);
+  border: 1px solid var(--accent);
 }
 
 /* About page */
