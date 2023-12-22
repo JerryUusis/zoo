@@ -37,7 +37,7 @@ body {
 
 #root {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   flex-direction: column;
   justify-content: space-between;
   font-family: "Ubuntu", sans-serif;
@@ -100,24 +100,41 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.array-selector-container {
-  width: 50%;
-  text-align: center;
-}
-
-.array-selector-container a {
-  color: var(--accent);
-  text-decoration: dashed;
-}
-
-.array-selector-container img {
-  display: block;
-  object-fit: cover;
+  height: 100%;
   width: 100%;
-  height: 500px;
+}
 
+.category-container {
+  width: 100%;
+  height: 100%;
+}
+
+.category-container a {
+  text-decoration: none;
+}
+
+.category-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  filter: grayscale();
+  transition: 250ms all ease-in-out;
+  font-size: 2rem;
+  color: var(--secondary-darker);
+}
+
+.category-image-container:hover {
+  filter: grayscale(0);
+}
+
+#animals {
+  background: center/cover url(assets/img/frog.jpeg);
+}
+
+#birds {
+  background: center/cover url(assets/img/crow.jpeg);
 }
 
 /* Card */
@@ -243,30 +260,30 @@ footer {
 
 /* Single page */
 
-  .single-page-main-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-  }
+.single-page-main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
 
-  .single-page-text-container {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 400px;
-  }
+.single-page-text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 400px;
+}
 
-  .single-page-text-container h2 {
-    text-transform: capitalize;
-  }
+.single-page-text-container h2 {
+  text-transform: capitalize;
+}
 
-  .single-page-text-container button {
-    display: block;
-    align-self: center;
-    padding: 0 0.5rem;
-    margin: 0.5rem 0;
-  }
+.single-page-text-container button {
+  display: block;
+  align-self: center;
+  padding: 0 0.5rem;
+  margin: 0.5rem 0;
+}
 
 /* About page */
 
