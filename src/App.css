@@ -142,6 +142,8 @@ input {
 
 .card-container {
   padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   width: 80%;
@@ -204,6 +206,7 @@ img.animal-image {
   outline: 1px solid var(--accent);
   box-shadow: 0 0 5px #333;
   border-radius: 1px;
+  cursor: pointer;
 }
 
 .card h2 {
@@ -235,6 +238,7 @@ img.animal-image {
   border: solid var(--accent) 1px;
   border-radius: 2px;
   background-color: var(--primary-lighter);
+  cursor: pointer;
 }
 
 .card button:active {
