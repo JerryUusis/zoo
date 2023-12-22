@@ -134,7 +134,7 @@ input {
   text-transform: capitalize;
   display: flex;
   flex-direction: column;
-  border: 1px var(--secondary-darker) solid;
+  border: 1px var(--accent) solid;
   width: 200px;
   height: 330px;
   position: relative;
@@ -153,6 +153,7 @@ input {
 .card a:hover {
   text-decoration: underline;
   font-weight: bold;
+  color: var(--accent);
 }
 
 .animal-image-container {
@@ -173,7 +174,7 @@ img.animal-image {
   right: 0.5rem;
   background-color: var(--primary-lighter);
   padding: 0.25rem;
-  outline: 1px solid var(--secondary);
+  outline: 1px solid var(--accent);
   box-shadow: 0 0 5px #333;
   border-radius: 1px;
 }
@@ -199,10 +200,18 @@ img.animal-image {
 
 .card button {
   font-family: monospace;
+  font-size: 1rem;
   text-align: center;
   align-self: center;
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
   color: var(--secondary-darker);
+  border: solid var(--accent) 1px;
+  border-radius: 2px;
+  background-color: var(--primary-lighter);
+}
+
+.card button:active {
+  background-color: var(--accent);
 }
 
 .like-counter {
