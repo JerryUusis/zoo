@@ -20,21 +20,21 @@ Zoo project is a project made with React for Business College Helsinki Full Stac
 
 ### Search bar
 
-You can filter the cards by name with the search bar.
+Filter the cards by name using the search bar.
 
 ### Likes
 
-You can give upvotes and downvotes for the species with + and - buttons and the icon updates based on the result.
+Give upvotes and downvotes for species with + and - buttons, and the icon updates based on the result.
 
 ### Card removal
 
-You can remove an individual card by clicking the 'x' button on the card.
+Remove an individual card by clicking the 'x' button on the card.
 
 ### Dynamic images
 
-Animal card images are updated with each refresh. The images in the cards are fetched from unsplash (which can create unexptected results) with setting the `<img>` element source attribute like this:
+Animal card images are updated with each rendering of the page. The images in the cards are fetched from Unsplash with the following syntax:
 
-```js
+```jsx
 <img src={`https://source.unsplash.com/400x400/?${name}`}>
 ```
 
@@ -49,3 +49,29 @@ Project utilizes dynamic routing to provide detailed information about each anim
 You can view detailed information about a specific animal or bird by clicking on the "See details" link in the card.
 
 Each of the cards are supplied with detailed page that displays a little more dynamic content about the species.
+
+## Getting Started
+
+1. Clone the repository.
+2. Install dependencies with npm install.
+3. Run the development server with npm run dev.
+
+### Project Structure
+
+The project is organized into several components and routes:
+
+- App.jsx: The main application component.
+- Header.jsx: Header component containing navigation links.
+- SinglePage.js: Component for displaying detailed information about a - specific species.
+- Home.jsx: Home component displaying category links.
+- Category.jsx: Component for displaying a category of cards with search functionality.
+- Root.jsx: Root component managing the overall layout.
+- Footer.jsx: Footer component.
+
+### Usage
+
+Navigate to the home page by clicking on the "Home" link.
+Explore different categories such as "Animals" and "Birds."
+Use the search bar to filter cards by name.
+Give likes or dislikes to species using the + and - buttons.
+Click on the "See details" link in a card to view more information.
