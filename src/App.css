@@ -1,9 +1,10 @@
 :root {
-  --tea-green: #ccd5ae;
-  --beige: #e9edc9;
-  --cornsilk: #fefae0;
-  --papaya: #faedcd;
-  --buff: #d4a373;
+  --primary: #e9edc9;
+  --primary-lighter: #fefae0;
+  --secondary: #d4a373;
+  --secondary-darker: #291f16;
+  --accent: #1a6d30;
+  --default-transition: 250ms all ease-in-out;
 }
 
 * {
@@ -26,18 +27,17 @@
 
 .main-container {
   width: 100%;
-  height: 80%;
   display: flex;
   justify-content: center;
 }
 
 body {
-  background: var(--beige);
+  background: var(--primary);
 }
 
 #root {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   flex-direction: column;
   justify-content: space-between;
   font-family: "Ubuntu", sans-serif;
@@ -46,15 +46,16 @@ body {
 /* Header */
 
 header h1 {
+  color: var(--secondary-darker);
   width: 100%;
   font-family: "Concert One", sans-serif;
   font-size: 4rem;
-  padding: 1rem;
+  padding: 0.25rem 1rem;
 }
 
 header {
   display: flex;
-  background-color: var(--buff);
+  background-color: var(--secondary);
 }
 
 /* Array links */
@@ -66,27 +67,32 @@ header {
 }
 
 .array-button-container a {
-  color: black;
+  color: var(--secondary-darker);
   font-family: inherit;
   margin: 0 1rem;
   text-decoration: none;
 }
 
 .array-button-container a.active {
-  color: var(--papaya);
-  text-decoration: underline;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* SearchBar */
 
 input {
   padding: 0.15rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   width: 300px;
   align-self: center;
-  font-size: 2rem;
+  font-size: 1rem;
   display: flex;
   font-family: "Ubuntu", sans-serif;
+  border: var(--accent) solid 1px;
+  border-radius: 5px;
+  padding: 0.75rem;
+  color: var(--secondary-darker);
 }
 
 /* Home */
@@ -95,25 +101,49 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.array-selector-container {
-  width: 50%;
-  text-align: center;
-}
-
-.array-selector-container img {
-  display: block;
-  object-fit: cover;
+  height: 100%;
   width: 100%;
-  height: 500px;
+}
 
+.category-container {
+  width: 100%;
+  height: 100%;
+}
+
+.category-container a {
+  text-decoration: none;
+}
+
+.category-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  filter: grayscale();
+  font-size: 2rem;
+  color: var(--secondary-darker);
+  transition: var(--default-transition);
+}
+
+.category-image-container:hover {
+  filter: grayscale(0);
+}
+
+#animals {
+  background: center/cover url(assets/img/frog.jpeg);
+}
+
+#birds {
+  background: center/cover url(assets/img/crow.jpeg);
 }
 
 /* Card */
 
 .card-container {
-  margin: 4rem 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   width: 80%;
@@ -128,20 +158,31 @@ input {
   text-transform: capitalize;
   display: flex;
   flex-direction: column;
-  border: 1px black solid;
+  border: 1px var(--accent) solid;
   width: 200px;
   height: 330px;
   position: relative;
+  color: var(--secondary-darker);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: var(--default-transition);
+}
+
+.card:hover {
+  filter: drop-shadow(0px 0px 5px  var(--accent))
 }
 
 .card a {
   text-align: center;
   padding-bottom: 0.25rem;
   text-decoration: none;
+  color: var(--secondary-darker);
 }
 
 .card a:hover {
   text-decoration: underline;
+  font-weight: bold;
+  color: var(--accent);
 }
 
 .animal-image-container {
@@ -158,12 +199,14 @@ img.animal-image {
 
 #close-button {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: var(--cornsilk);
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: var(--primary-lighter);
   padding: 0.25rem;
-  outline: 1px solid var(--buff);
+  outline: 1px solid var(--accent);
   box-shadow: 0 0 5px #333;
+  border-radius: 1px;
+  cursor: pointer;
 }
 
 .card h2 {
@@ -174,7 +217,7 @@ img.animal-image {
   display: flex;
   height: fit-content;
   flex-direction: column;
-  background-color: var(--cornsilk);
+  background-color: var(--primary-lighter);
 }
 
 .button-container {
@@ -187,9 +230,19 @@ img.animal-image {
 
 .card button {
   font-family: monospace;
+  font-size: 1rem;
   text-align: center;
   align-self: center;
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  color: var(--secondary-darker);
+  border: solid var(--accent) 1px;
+  border-radius: 2px;
+  background-color: var(--primary-lighter);
+  cursor: pointer;
+}
+
+.card button:active {
+  background-color: var(--accent);
 }
 
 .like-counter {
@@ -208,49 +261,55 @@ img.animal-image {
 
 footer {
   width: 100%;
-  background-color: var(--buff);
+  background-color: var(--secondary);
   font-family: "Ubuntu", sans-serif;
   text-align: center;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
+  color: var(--secondary-darker);
 }
 
 /* Single page */
 
-  .single-page-main-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-  }
+.single-page-main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
 
-  .single-page-text-container {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 400px;
-  }
+.single-page-text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 400px;
+}
 
-  .single-page-text-container h2 {
-    text-transform: capitalize;
-  }
+.single-page-text-container h2 {
+  text-transform: capitalize;
+}
 
-  .single-page-text-container button {
-    display: block;
-    align-self: center;
-    padding: 0 0.5rem;
-    margin: 0.5rem 0;
-  }
+.single-page-text-container button {
+  display: block;
+  align-self: center;
+  padding: 0 0.5rem;
+  margin: 0.5rem 0;
+  background-color: var(--primary-lighter);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+}
 
 /* About page */
 
 .about-main-container {
   display: flex;
   justify-content: center;
+  color: var(--secondary-darker);
 }
 
 .about-text-container {
   width: 80%;
   justify-content: center;
+  margin: 2rem 0;
 }
 
 .about-text-container h1,
@@ -259,3 +318,45 @@ footer {
 .about-text-container p {
   padding: 0.5rem 0;
 }
+
+#code-snippet {
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.about-text-container a {
+  color: var(--accent);
+}
+
+.about-text-container ul, 
+.about-text-container ol {
+  padding: 1rem 1rem;
+}
+
+.about-text-container p,
+code {
+  font-size: 1rem;
+}
+
+.about-text-container code {
+  color: var(--accent);
+}
+
+table,
+thead,
+th,
+tbody,
+tr,
+td {
+  border: 1px var(--secondary-darker) solid;
+  border-collapse: collapse;
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
