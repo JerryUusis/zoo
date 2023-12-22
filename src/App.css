@@ -1,9 +1,9 @@
 :root {
-  --tea-green: #ccd5ae;
-  --beige: #e9edc9;
-  --cornsilk: #fefae0;
-  --papaya: #faedcd;
-  --buff: #d4a373;
+  --primary: #e9edc9;
+  --primary-lighter: #fefae0;
+  --secondary: #d4a373;
+  --secondary-darker: #291f16;
+  --accent: #1a6d30;
 }
 
 * {
@@ -32,7 +32,7 @@
 }
 
 body {
-  background: var(--beige);
+  background: var(--primary);
 }
 
 #root {
@@ -46,6 +46,7 @@ body {
 /* Header */
 
 header h1 {
+  color: var(--secondary-darker);
   width: 100%;
   font-family: "Concert One", sans-serif;
   font-size: 4rem;
@@ -54,7 +55,7 @@ header h1 {
 
 header {
   display: flex;
-  background-color: var(--buff);
+  background-color: var(--secondary);
 }
 
 /* Array links */
@@ -66,15 +67,15 @@ header {
 }
 
 .array-button-container a {
-  color: black;
+  color: var(--secondary-darker);
   font-family: inherit;
   margin: 0 1rem;
   text-decoration: none;
 }
 
 .array-button-container a.active {
-  color: var(--papaya);
-  text-decoration: underline;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* SearchBar */
@@ -100,6 +101,11 @@ input {
 .array-selector-container {
   width: 50%;
   text-align: center;
+}
+
+.array-selector-container a {
+  color: var(--accent);
+  text-decoration: dashed;
 }
 
 .array-selector-container img {
@@ -128,20 +134,23 @@ input {
   text-transform: capitalize;
   display: flex;
   flex-direction: column;
-  border: 1px black solid;
+  border: 1px var(--secondary-darker) solid;
   width: 200px;
   height: 330px;
   position: relative;
+  color: var(--secondary-darker);
 }
 
 .card a {
   text-align: center;
   padding-bottom: 0.25rem;
   text-decoration: none;
+  color: var(--secondary-darker);
 }
 
 .card a:hover {
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .animal-image-container {
@@ -160,9 +169,9 @@ img.animal-image {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: var(--cornsilk);
+  background-color: var(--primary-lighter);
   padding: 0.25rem;
-  outline: 1px solid var(--buff);
+  outline: 1px solid var(--secondary);
   box-shadow: 0 0 5px #333;
 }
 
@@ -174,7 +183,7 @@ img.animal-image {
   display: flex;
   height: fit-content;
   flex-direction: column;
-  background-color: var(--cornsilk);
+  background-color: var(--primary-lighter);
 }
 
 .button-container {
@@ -208,10 +217,11 @@ img.animal-image {
 
 footer {
   width: 100%;
-  background-color: var(--buff);
+  background-color: var(--secondary);
   font-family: "Ubuntu", sans-serif;
   text-align: center;
   padding: 1rem 0;
+  color: var(--secondary-darker);
 }
 
 /* Single page */
@@ -246,6 +256,7 @@ footer {
 .about-main-container {
   display: flex;
   justify-content: center;
+  color: var(--secondary-darker);
 }
 
 .about-text-container {
