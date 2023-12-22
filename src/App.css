@@ -85,9 +85,13 @@ input {
   margin-top: 4rem;
   width: 300px;
   align-self: center;
-  font-size: 2rem;
+  font-size: 1rem;
   display: flex;
   font-family: "Ubuntu", sans-serif;
+  border: var(--accent) solid 1px;
+  border-radius: 5px;
+  padding: 0.75rem;
+  color: var(--secondary-darker);
 }
 
 /* Home */
