@@ -46,17 +46,26 @@ body {
 
 /* Header */
 
+header {
+  display: flex;
+  background-color: var(--secondary);
+}
+
 header h1 {
-  color: var(--secondary-darker);
   width: 100%;
   font-family: "Concert One", sans-serif;
   font-size: 4rem;
   padding: 0.25rem 1rem;
 }
 
-header {
-  display: flex;
-  background-color: var(--secondary);
+header h1 a {
+  text-decoration: none;
+  color: var(--secondary-darker);
+  transition: var(--default-transition);
+}
+
+header h1 a:hover {
+  color: var(--accent);
 }
 
 /* Array links */
