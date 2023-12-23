@@ -11,7 +11,7 @@ const Category = (props) => {
             <SearchBar handleSearch={props.handleSearch} />
             <div className="main-container">
                 <div className="card-container">
-                    {props[category].filter((item) => item.name.toLowerCase().includes(props.search))
+                    {props.filterItems(props[category], props.search)
                         .map((item) => (
                             <Card
                                 key={item.name}

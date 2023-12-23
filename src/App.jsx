@@ -52,6 +52,10 @@ function App() {
     setSearch(event.target.value.toLowerCase())
   }
 
+  const filterItems = (array, searchValue) => {
+    return array.filter((item) => item.name.toLowerCase().includes(searchValue));
+  }
+
   const router = createBrowserRouter([
     {
       path: '/', element: <Root />,
@@ -62,6 +66,7 @@ function App() {
           path: ':categories', element: <Category
             {...zoo}
             handleSearch={handleSearch}
+            filterItems={filterItems}
             removeCard={removeCard}
             search={search}
             handleIcon={handleIcon}
