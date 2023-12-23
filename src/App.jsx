@@ -52,9 +52,20 @@ function App() {
     setSearch(event.target.value.toLowerCase())
   }
 
+  const resetSearch = (event) => {
+    setSearch("");
+    event.target.value = "";
+  }
+
+  const filterItems = (array, searchValue) => {
+    return array.filter((item) => item.name.toLowerCase().includes(searchValue));
+  }
+
   const router = createBrowserRouter([
     {
-      path: '/', element: <Root />,
+      path: '/', element: <Root 
+      handleSearch={handleSearch}
+      resetSearch={resetSearch} />,
       children: [
         { path: '/', element: <Home /> },
         { path: ":categories/:name", element: <SinglePage zoo={zoo} /> },
@@ -62,6 +73,7 @@ function App() {
           path: ':categories', element: <Category
             {...zoo}
             handleSearch={handleSearch}
+            filterItems={filterItems}
             removeCard={removeCard}
             search={search}
             handleIcon={handleIcon}

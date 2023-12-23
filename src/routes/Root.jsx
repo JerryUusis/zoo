@@ -2,12 +2,14 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 
-const Root = () => {
+const Root = ({ handleSearch, resetSearch }) => {
     return (
         <>
-        <Header />
-        <Outlet />
-        <Footer />
+            <Header 
+            handleSearch={handleSearch}
+            resetSearch={resetSearch} />
+            <Outlet />
+            <Footer />
         </>
     )
 }
