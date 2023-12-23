@@ -10,7 +10,6 @@ const Category = (props) => {
 
     return (
         <>
-            <SearchBar handleSearch={props.handleSearch} />
             <div className="main-container">
                 <div className="card-container">
                     {filteredItems.length === 0 ?

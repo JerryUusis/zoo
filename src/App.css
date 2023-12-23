@@ -49,13 +49,16 @@ body {
 header {
   display: flex;
   background-color: var(--secondary);
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 header h1 {
-  width: 100%;
   font-family: "Concert One", sans-serif;
   font-size: 4rem;
   padding: 0.25rem 1rem;
+  width: 33%;
 }
 
 header h1 a {
@@ -72,14 +75,15 @@ header h1 a:hover {
 
 .array-button-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 33%;
+  justify-content: space-evenly;
+
 }
 
 .array-button-container a {
   color: var(--secondary-darker);
   font-family: inherit;
-  margin: 0 1rem;
+
   text-decoration: none;
 }
 
@@ -92,10 +96,7 @@ header h1 a:hover {
 
 input {
   padding: 0.15rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
   width: 300px;
-  align-self: center;
   font-size: 1rem;
   display: flex;
   font-family: "Ubuntu", sans-serif;
@@ -103,6 +104,7 @@ input {
   border-radius: 5px;
   padding: 0.75rem;
   color: var(--secondary-darker);
+
 }
 
 /* Home */

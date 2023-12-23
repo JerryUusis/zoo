@@ -58,7 +58,7 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: '/', element: <Root />,
+      path: '/', element: <Root handleSearch={handleSearch} />,
       children: [
         { path: '/', element: <Home /> },
         { path: ":categories/:name", element: <SinglePage zoo={zoo} /> },

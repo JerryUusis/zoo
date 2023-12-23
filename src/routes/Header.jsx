@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
+import SearchBar from "../components/SearchBar";
 
-const Header = () => {
+const Header = ({handleSearch}) => {
 
   return (
     <header>
@@ -8,7 +9,7 @@ const Header = () => {
       <h1>
         <NavLink>Zoo</NavLink>
       </h1>
-
+      <SearchBar handleSearch={handleSearch}/>
       <div className="array-button-container">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/animals">Animals</NavLink>
