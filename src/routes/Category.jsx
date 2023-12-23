@@ -1,4 +1,3 @@
-import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
 import { useParams } from "react-router-dom";
 
