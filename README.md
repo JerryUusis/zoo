@@ -1,3 +1,8 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JerryUusis_zoo&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=JerryUusis_zoo)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=JerryUusis_zoo&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=JerryUusis_zoo)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=JerryUusis_zoo&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=JerryUusis_zoo)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=JerryUusis_zoo&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=JerryUusis_zoo)
+
 # Zoo
 
 Zoo project is a project made with React for Business College Helsinki Full Stack Developer program. It creates a set of cards fetched from an array of anonymous objects which are animals and birds.
