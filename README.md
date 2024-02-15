@@ -10,7 +10,7 @@ Zoo project is a project made with React for Business College Helsinki Full Stac
 
 ## Try it out!
 
-Zoo is deployed live [here](https://6586c4e856d7347bb8d1a1ba--roaring-boba-c5352c.netlify.app/) using Netlify
+Zoo is deployed live [here](https://6586c4e856d7347bb8d1a1ba--roaring-boba-c5352c.netlify.app/) using Netlify.
 
 ## Sources
 
